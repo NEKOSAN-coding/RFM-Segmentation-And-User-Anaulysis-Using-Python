@@ -13,8 +13,7 @@
 [🧹 3. Data Cleaning & Preprocessing](#data-cleaning--preprocessing)  
 [🔍 4. Exploratory Data Analysis (EDA)](#exploratory-data-analysis-eda)  
 [🧮 5. Apply RFM Model](#apply-rfm-model)  
-[📊 6. Visualization & Analysis](#visualization--analysis)  
-[💡 7. Insight & Recommendation](#insight--recommendation)
+[📊 6. Visualization & Analysis](#visualization--analysis) 
 
 ## 1. 📌 Background & Overview
 
