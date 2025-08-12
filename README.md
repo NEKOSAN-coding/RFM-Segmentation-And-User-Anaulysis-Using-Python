@@ -1,4 +1,4 @@
-<img width="1755" height="541" alt="image" src="https://github.com/user-attachments/assets/eddd9a8d-02e7-4b17-bbcf-04fb795e7e1d" /><img width="965" height="598" alt="image" src="https://github.com/user-attachments/assets/88c66673-47d3-4b0c-93e6-463d8e71a20a" /># 🛒 Customer Segmentation For Marketing Campaigns in A Retail Global SuperStore | Python
+# 🛒 Customer Segmentation For Marketing Campaigns in A Retail Global SuperStore | Python
 
 **Author:** Hà Minh Khuê
 
