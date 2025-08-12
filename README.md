@@ -1,4 +1,4 @@
-# 🛒 Customer Segmentation For Marketing Campaigns in A Retail Global SuperStore | Python
+<img width="1755" height="541" alt="image" src="https://github.com/user-attachments/assets/eddd9a8d-02e7-4b17-bbcf-04fb795e7e1d" /><img width="965" height="598" alt="image" src="https://github.com/user-attachments/assets/88c66673-47d3-4b0c-93e6-463d8e71a20a" /># 🛒 Customer Segmentation For Marketing Campaigns in A Retail Global SuperStore | Python
 
 **Author:** Hà Minh Khuê
 
@@ -115,8 +115,9 @@ ssdata.describe()
 # Information dataset
 ssdata.info()
 ```
-[Out 1]:  
+[Out 1]:
 
+<img width="941" height="756" alt="image" src="https://github.com/user-attachments/assets/9d8de8ee-c365-4bd4-b339-39bb4acc6691" />
 
 #### Summary:
 
@@ -162,6 +163,9 @@ The following columns have inappropriate data types and should be converted to *
 profile = ProfileReport(ssdata)
 profile
 ```
+[Out 2]:
+
+<img width="1744" height="781" alt="image" src="https://github.com/user-attachments/assets/70ad6d11-2266-4b47-9019-53cd9c75d315" />
 
 ### 🛠 Step 2. Removing Invalid Transactions (Quantity < 0; Price < 0)
 
@@ -190,8 +194,12 @@ ssdata = ssdata.replace('nan', None)
 ssdata = ssdata.replace('Nan',None)
 ssdata.shape
 ```
+[Out 3]:
 
-### 🛠 Step 3. 🛠 Checking Missing Values in CustomerID and Descriptions
+<img width="538" height="86" alt="image" src="https://github.com/user-attachments/assets/63c66fce-52fc-4df1-aa14-b9fa88e64de8" />
+
+
+### 🛠 Step 3. 🛠 Checking and Removing Missing Values in CustomerID and Descriptions
 
 Since CustomerID is essential for valid transactions, records lacking it should be removed for consistency.
 
@@ -204,6 +212,8 @@ ssdata = ssdata[ssdata['Descriptions'].notnull()]
 ssdata.head()```
 
 [Out 4]:
+
+<img width="1169" height="196" alt="image" src="https://github.com/user-attachments/assets/af81f83b-5990-46bf-a8e9-486fa96ef4c0" />
 
 
 #### 🔍 Investigating Missing CustomerID and Descriptions:
@@ -230,6 +240,9 @@ print (ssdata.shape)
 
 [Out 5]:
 
+<img width="1169" height="196" alt="image" src="https://github.com/user-attachments/assets/60b82b40-6684-4106-9494-4efb737a13cc" />
+
+
 The result (10038, 11) means there are 10,038 duplicate rows, and they need to be detected and handled
 ## 5. 🧮 Apply RFM Model
 
@@ -255,15 +268,11 @@ RFM_ssdata['Recency'] = RFM_ssdata['Recency'].dt.days.astype('int16')
 RFM_ssdata['Recency_reverse'] = - RFM_ssdata['Recency'] 
 RFM_ssdata['Start_Day'] = pd.to_datetime(RFM_ssdata['Start_Day'])
 RFM_ssdata['Start_Month'] = RFM_ssdata['Start_Day'].apply(lambda x : x.replace(day=1))
-
 ```
-
-[Out 6]:
-
 
 #### 🛠 Step 2. Assign RFM scores using Qcut
 
-[In 10]:
+[In 7]:
 
 ```python
 # using qcut to create R, F, M
@@ -273,11 +282,16 @@ RFM_ssdata['M'] = pd.qcut(RFM_ssdata["Monetary"], 5, labels = range(1, 6)).astyp
 RFM_ssdata['RFM'] = RFM_ssdata.apply(lambda x: x.R + x.F + x.M, axis = 1)
 RFM_ssdata.head()```
 
+[Out 7]:
+
+<img width="743" height="167" alt="image" src="https://github.com/user-attachments/assets/15677fda-e0e2-48d2-a8a4-79b0a5ab7449" />
+
+
 #### 🛠 Step 4. Calculate RFM Score, merge into dataset
 
 Process the segmentation table & merge with RFM_df
 
-[In 11]:
+[In 8]:
 
 ```python
 # segmentation dataset
@@ -293,25 +307,32 @@ RFM_ssdata_final = RFM_ssdata.merge(seg, how = 'left', left_on = 'RFM', right_on
 RFM_ssdata_final.head()
 
 ```
-[Out 11]:
+[Out 8]:
 
+<img width="945" height="181" alt="image" src="https://github.com/user-attachments/assets/0486a172-a6c9-4ad7-925e-33e8faaa815c" />
 
 
 ## 6. 📊 Visualization & Analysis
 
-### 1. Number of Customers per Segmentations
+# 1. Number of Customers per Segmentations
 
+<img width="943" height="444" alt="image" src="https://github.com/user-attachments/assets/342a51c9-fb10-4236-9382-842cb3061728" />
 
-### 2. Recency distribution by Segmentations
+# 2. Recency distribution by Segmentations
 
+<img width="965" height="598" alt="image" src="https://github.com/user-attachments/assets/8b51db5e-03b1-4c93-abe6-206a2ab4dbde" />
 
-### 3. Relationships among RFM via Heatmap
+# 3. Relationships among RFM via Heatmap
 
+<img width="1755" height="541" alt="image" src="https://github.com/user-attachments/assets/56265838-51b5-437e-89cf-2076dcf95b3e" />
 
-### 4. Histogram of R,F,M distributions
+# 4. Histogram of R,F,M distributions
 
+<img width="1669" height="445" alt="image" src="https://github.com/user-attachments/assets/11e2486e-6101-48fe-9307-5d42be871f78" />
 
-### 5. Revenue by Segmentations
+# 5. Revenue by Segmentations
+
+<img width="1769" height="324" alt="image" src="https://github.com/user-attachments/assets/8e5559a3-feda-428e-876b-448d8fa21c21" />
 
 --- 
 
